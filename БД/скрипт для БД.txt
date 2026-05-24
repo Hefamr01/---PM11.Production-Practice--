@@ -1,0 +1,272 @@
+/*
+    Скрипт создания и наполнения базы данных AdminAppealsDB
+    Для Microsoft SQL Server (Express Edition)
+    Автор: Пестов Арсений
+    Дата: 26.05.2026
+*/
+
+USE master;
+GO
+
+-- 1. Создание базы данных (если не существует)
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AdminAppealsDB')
+BEGIN
+    CREATE DATABASE AdminAppealsDB;
+    PRINT 'База данных AdminAppealsDB создана.';
+END
+ELSE
+    PRINT 'База данных AdminAppealsDB уже существует.';
+GO
+
+USE AdminAppealsDB;
+GO
+
+-- ============================================
+-- 2. Создание таблиц
+-- ============================================
+
+-- Граждане
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Citizens')
+BEGIN
+    CREATE TABLE Citizens (
+        CitizenID INT IDENTITY(1,1) PRIMARY KEY,
+        LastName NVARCHAR(100) NOT NULL,
+        FirstName NVARCHAR(100) NOT NULL,
+        Patronymic NVARCHAR(100) NULL,
+        Address NVARCHAR(200) NOT NULL,
+        Phone NVARCHAR(20) NULL,
+        Email NVARCHAR(100) NOT NULL UNIQUE,
+        PasswordHash NVARCHAR(200) NULL
+    );
+    PRINT 'Таблица Citizens создана.';
+END
+
+-- Типы обращений
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'AppealTypes')
+BEGIN
+    CREATE TABLE AppealTypes (
+        TypeID INT PRIMARY KEY,
+        TypeName NVARCHAR(100) NOT NULL
+    );
+    PRINT 'Таблица AppealTypes создана.';
+END
+
+-- Статусы обращений
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'AppealStatuses')
+BEGIN
+    CREATE TABLE AppealStatuses (
+        StatusID INT PRIMARY KEY,
+        StatusName NVARCHAR(100) NOT NULL
+    );
+    PRINT 'Таблица AppealStatuses создана.';
+END
+
+-- Сотрудники (исполнители)
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Employees')
+BEGIN
+    CREATE TABLE Employees (
+        EmployeeID INT IDENTITY(1,1) PRIMARY KEY,
+        FullName NVARCHAR(200) NOT NULL,
+        Position NVARCHAR(100) NULL,
+        Department NVARCHAR(100) NULL
+    );
+    PRINT 'Таблица Employees создана.';
+END
+
+-- Обращения
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Appeals')
+BEGIN
+    CREATE TABLE Appeals (
+        AppealID INT IDENTITY(1,1) PRIMARY KEY,
+        CitizenID INT NOT NULL,
+        AppealTypeID INT NOT NULL,
+        StatusID INT NOT NULL,
+        EmployeeID INT NULL,
+        AppealDate DATETIME NOT NULL DEFAULT GETDATE(),
+        Content NVARCHAR(MAX) NOT NULL,
+        ResponseDeadline DATETIME NULL,
+        ResolutionText NVARCHAR(MAX) NULL,
+        CONSTRAINT FK_Appeals_Citizens FOREIGN KEY (CitizenID) REFERENCES Citizens(CitizenID),
+        CONSTRAINT FK_Appeals_AppealTypes FOREIGN KEY (AppealTypeID) REFERENCES AppealTypes(TypeID),
+        CONSTRAINT FK_Appeals_AppealStatuses FOREIGN KEY (StatusID) REFERENCES AppealStatuses(StatusID),
+        CONSTRAINT FK_Appeals_Employees FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+    );
+    PRINT 'Таблица Appeals создана.';
+END
+
+-- История обращений
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'AppealHistory')
+BEGIN
+    CREATE TABLE AppealHistory (
+        HistoryID INT IDENTITY(1,1) PRIMARY KEY,
+        AppealID INT NOT NULL,
+        StatusID INT NOT NULL,
+        ChangeDate DATETIME NOT NULL DEFAULT GETDATE(),
+        Comment NVARCHAR(500) NULL,
+        CONSTRAINT FK_AppealHistory_Appeals FOREIGN KEY (AppealID) REFERENCES Appeals(AppealID),
+        CONSTRAINT FK_AppealHistory_AppealStatuses FOREIGN KEY (StatusID) REFERENCES AppealStatuses(StatusID)
+    );
+    PRINT 'Таблица AppealHistory создана.';
+END
+
+-- ============================================
+-- 3. Заполнение справочников
+-- ============================================
+
+INSERT INTO AppealTypes (TypeID, TypeName)
+SELECT t.TypeID, t.TypeName
+FROM (VALUES 
+    (1, 'Предложение'),
+    (2, 'Заявление'),
+    (3, 'Жалоба'),
+    (4, 'Запрос')
+) AS t(TypeID, TypeName)
+WHERE NOT EXISTS (SELECT 1 FROM AppealTypes WHERE TypeID = t.TypeID);
+
+INSERT INTO AppealStatuses (StatusID, StatusName)
+SELECT s.StatusID, s.StatusName
+FROM (VALUES 
+    (1, 'Новое'),
+    (2, 'В работе'),
+    (3, 'Выполнено'),
+    (4, 'Отклонено'),
+    (5, 'На доработке')
+) AS s(StatusID, StatusName)
+WHERE NOT EXISTS (SELECT 1 FROM AppealStatuses WHERE StatusID = s.StatusID);
+
+-- ============================================
+-- 4. Генерация тестовых данных
+-- ============================================
+
+-- 4.1 Граждане (300 записей)
+IF (SELECT COUNT(*) FROM Citizens) < 300
+BEGIN
+    DELETE FROM Citizens;
+    SET NOCOUNT ON;
+    DECLARE @i INT = 1;
+    WHILE @i <= 300
+    BEGIN
+        INSERT INTO Citizens (LastName, FirstName, Patronymic, Address, Phone, Email, PasswordHash)
+        VALUES (
+            'Фамилия' + CAST(@i AS NVARCHAR),
+            'Имя' + CAST(@i AS NVARCHAR),
+            CASE WHEN @i % 3 = 0 THEN 'Отчество' + CAST(@i AS NVARCHAR) ELSE NULL END,
+            'г. Слободской, ул. ' + CAST((@i % 50) + 1 AS NVARCHAR) + ', д. ' + CAST((@i % 100) + 1 AS NVARCHAR),
+            '+7' + RIGHT('0000000000' + CAST(@i AS NVARCHAR), 10),
+            'citizen' + CAST(@i AS NVARCHAR) + '@slobodskoy.ru',
+            NULL
+        );
+        SET @i = @i + 1;
+    END;
+    PRINT 'Добавлено 300 граждан.';
+END
+
+-- 4.2 Сотрудники (20 записей)
+IF (SELECT COUNT(*) FROM Employees) < 20
+BEGIN
+    DELETE FROM Employees;
+    INSERT INTO Employees (FullName, Position, Department) VALUES
+    ('Иванов Иван Иванович', 'Начальник отдела', 'Управление ЖКХ'),
+    ('Петрова Анна Алексеевна', 'Главный специалист', 'Отдел соцзащиты'),
+    ('Сидоров Владимир Васильевич', 'Ведущий специалист', 'Комитет образования'),
+    ('Кузнецова Елена Дмитриевна', 'Специалист 1 категории', 'Отдел культуры'),
+    ('Морозов Алексей Петрович', 'Начальник отдела', 'Отдел спорта'),
+    ('Васильева Ольга Николаевна', 'Главный архитектор', 'Управление архитектуры'),
+    ('Николаев Дмитрий Сергеевич', 'Начальник', 'Финансовый отдел'),
+    ('Смирнова Татьяна Владимировна', 'Юрисконсульт', 'Юридический отдел'),
+    ('Егоров Павел Андреевич', 'Специалист', 'Отдел ЗАГС'),
+    ('Михайлова Светлана Игоревна', 'Пресс-секретарь', 'Пресс-служба'),
+    ('Алексеев Константин Викторович', 'Заместитель начальника', 'Управление ЖКХ'),
+    ('Дмитриева Наталья Сергеевна', 'Консультант', 'Отдел соцзащиты'),
+    ('Григорьев Андрей Михайлович', 'Эксперт', 'Комитет образования'),
+    ('Сергеева Ирина Павловна', 'Методист', 'Отдел культуры'),
+    ('Федоров Артём Валерьевич', 'Инструктор', 'Отдел спорта'),
+    ('Крылова Марина Александровна', 'Инженер', 'Управление архитектуры'),
+    ('Борисов Илья Евгеньевич', 'Экономист', 'Финансовый отдел'),
+    ('Романова Екатерина Витальевна', 'Адвокат', 'Юридический отдел'),
+    ('Тимофеев Сергей Анатольевич', 'Регистратор', 'Отдел ЗАГС'),
+    ('Андреева Ксения Денисовна', 'Специалист по связям', 'Пресс-служба');
+    PRINT 'Добавлено 20 сотрудников.';
+END
+
+-- 4.3 Обращения (500 записей) со случайными датами, статусами, исполнителями
+IF (SELECT COUNT(*) FROM Appeals) < 500
+BEGIN
+    DELETE FROM Appeals;
+    SET NOCOUNT ON;
+    DECLARE @j INT = 1;
+    WHILE @j <= 500
+    BEGIN
+        INSERT INTO Appeals (CitizenID, AppealTypeID, StatusID, EmployeeID, AppealDate, Content, ResponseDeadline, ResolutionText)
+        SELECT 
+            ABS(CHECKSUM(NEWID())) % 300 + 1,
+            ABS(CHECKSUM(NEWID())) % 4 + 1,
+            ABS(CHECKSUM(NEWID())) % 5 + 1,
+            CASE WHEN ABS(CHECKSUM(NEWID())) % 3 = 0 THEN ABS(CHECKSUM(NEWID())) % 20 + 1 ELSE NULL END,
+            DATEADD(day, -ABS(CHECKSUM(NEWID())) % 365, GETDATE()),
+            'Текст обращения №' + CAST(@j AS NVARCHAR) + ': Прошу решить вопрос по благоустройству...',
+            DATEADD(day, 30, GETDATE()),
+            NULL;
+        SET @j = @j + 1;
+    END;
+    -- Для выполненных обращений добавим текст ответа и дату
+    UPDATE Appeals SET 
+        ResolutionText = 'Ваше обращение рассмотрено. Принято положительное решение.',
+        ResponseDeadline = AppealDate + 20
+    WHERE StatusID = 3 AND ResolutionText IS NULL;
+    PRINT 'Добавлено 500 обращений.';
+END
+
+-- 4.4 История изменений (около 1800 записей)
+IF (SELECT COUNT(*) FROM AppealHistory) < 1000
+BEGIN
+    DELETE FROM AppealHistory;
+    INSERT INTO AppealHistory (AppealID, StatusID, ChangeDate, Comment)
+    SELECT 
+        a.AppealID,
+        CASE 
+            WHEN h.num = 1 THEN 1
+            WHEN h.num = 2 AND a.StatusID > 1 THEN a.StatusID - 1
+            ELSE a.StatusID
+        END,
+        DATEADD(day, h.num * 3, a.AppealDate),
+        CASE 
+            WHEN h.num = 1 THEN 'Обращение зарегистрировано'
+            WHEN h.num = 2 AND a.StatusID > 1 THEN 'Статус изменён'
+            WHEN a.StatusID = 3 THEN 'Обращение выполнено'
+            WHEN a.StatusID = 4 THEN 'Обращение отклонено'
+            ELSE 'Обновление статуса'
+        END
+    FROM Appeals a
+    CROSS JOIN (SELECT 1 AS num UNION SELECT 2 UNION SELECT 3) h
+    WHERE (h.num = 1) 
+       OR (h.num = 2 AND a.StatusID > 1) 
+       OR (h.num = 3 AND a.StatusID IN (3,4));
+    PRINT 'Добавлена история изменений.';
+END
+
+-- ============================================
+-- 5. Индексы для производительности
+-- ============================================
+CREATE INDEX IF NOT EXISTS IX_Citizens_LastName ON Citizens(LastName);
+CREATE INDEX IF NOT EXISTS IX_Appeals_AppealDate ON Appeals(AppealDate);
+CREATE INDEX IF NOT EXISTS IX_Appeals_StatusID ON Appeals(StatusID);
+CREATE INDEX IF NOT EXISTS IX_AppealHistory_AppealID ON AppealHistory(AppealID);
+PRINT 'Индексы созданы.';
+
+-- ============================================
+-- 6. Проверка количества записей
+-- ============================================
+SELECT 'Citizens' AS TableName, COUNT(*) AS RowsCount FROM Citizens
+UNION ALL
+SELECT 'AppealTypes', COUNT(*) FROM AppealTypes
+UNION ALL
+SELECT 'AppealStatuses', COUNT(*) FROM AppealStatuses
+UNION ALL
+SELECT 'Employees', COUNT(*) FROM Employees
+UNION ALL
+SELECT 'Appeals', COUNT(*) FROM Appeals
+UNION ALL
+SELECT 'AppealHistory', COUNT(*) FROM AppealHistory;
+
+PRINT 'Скрипт успешно завершён. База данных готова к использованию.';

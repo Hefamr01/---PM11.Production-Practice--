@@ -1,0 +1,108 @@
+SELECT 
+    a.AppealID,
+    c.LastName + ' ' + c.FirstName + ISNULL(' ' + c.Patronymic, '') AS CitizenFullName,
+    t.TypeName AS AppealType,
+    s.StatusName AS Status,
+    a.AppealDate,
+    a.ResponseDeadline,
+    e.FullName AS ExecutorName,
+    a.Content
+FROM Appeals a
+JOIN Citizens c ON a.CitizenID = c.CitizenID
+JOIN AppealTypes t ON a.AppealTypeID = t.TypeID
+JOIN AppealStatuses s ON a.StatusID = s.StatusID
+LEFT JOIN Employees e ON a.EmployeeID = e.EmployeeID
+ORDER BY a.AppealDate DESC;
+
+-- 2. Фильтрация по статусу (например, 'В работе')
+SELECT * FROM Appeals a
+JOIN AppealStatuses s ON a.StatusID = s.StatusID
+WHERE s.StatusName = 'В работе'
+ORDER BY a.AppealDate DESC;
+
+-- 3. Поиск по фамилии гражданина (частичное совпадение)
+SELECT a.AppealID, c.LastName, c.FirstName, a.Content, a.AppealDate
+FROM Appeals a
+JOIN Citizens c ON a.CitizenID = c.CitizenID
+WHERE c.LastName LIKE '%Иванов%'   -- замените на нужную фамилию
+ORDER BY a.AppealDate DESC;
+
+-- 4. Поиск по тексту обращения (ключевое слово)
+SELECT AppealID, Content, AppealDate
+FROM Appeals
+WHERE Content LIKE '%благоустройство%'   -- замените ключевое слово
+ORDER BY AppealDate DESC;
+
+-- 5. Фильтр по диапазону дат (пример: обращения за май 2026)
+SELECT AppealID, AppealDate, Content
+FROM Appeals
+WHERE AppealDate BETWEEN '2026-05-01' AND '2026-05-31'
+ORDER BY AppealDate;
+
+-- 6. Статистика по статусам (количество обращений в каждом статусе)
+SELECT s.StatusName, COUNT(a.AppealID) AS Count
+FROM AppealStatuses s
+LEFT JOIN Appeals a ON s.StatusID = a.StatusID
+GROUP BY s.StatusName
+ORDER BY Count DESC;
+
+-- 7. Отчёт по категориям (типам) обращений за текущий месяц
+SELECT t.TypeName, COUNT(a.AppealID) AS Count
+FROM AppealTypes t
+LEFT JOIN Appeals a ON t.TypeID = a.AppealTypeID
+WHERE MONTH(a.AppealDate) = MONTH(GETDATE()) 
+  AND YEAR(a.AppealDate) = YEAR(GETDATE())
+GROUP BY t.TypeName
+ORDER BY Count DESC;
+
+-- 8. История изменения статусов для конкретного обращения (укажите AppealID)
+SELECT h.ChangeDate, s.StatusName, h.Comment
+FROM AppealHistory h
+JOIN AppealStatuses s ON h.StatusID = s.StatusID
+WHERE h.AppealID = 123   -- замените на номер обращения
+ORDER BY h.ChangeDate;
+
+-- 9. Топ-5 исполнителей по количеству обращений
+SELECT TOP 5 e.FullName, COUNT(a.AppealID) AS AppealsCount
+FROM Employees e
+LEFT JOIN Appeals a ON e.EmployeeID = a.EmployeeID
+GROUP BY e.FullName
+ORDER BY AppealsCount DESC;
+
+-- 10. Просроченные обращения (срок истёк, ответа нет)
+SELECT a.AppealID, c.LastName + ' ' + c.FirstName AS Citizen, a.ResponseDeadline, a.Content
+FROM Appeals a
+JOIN Citizens c ON a.CitizenID = c.CitizenID
+WHERE a.ResponseDeadline < GETDATE() 
+  AND (a.ResolutionText IS NULL OR a.ResolutionText = '')
+  AND a.StatusID NOT IN (3,4)   -- не выполнено и не отклонено
+ORDER BY a.ResponseDeadline;
+
+-- 11. Количество обращений по месяцам (динамика)
+SELECT YEAR(a.AppealDate) AS Year, MONTH(a.AppealDate) AS Month, COUNT(*) AS AppealsCount
+FROM Appeals a
+GROUP BY YEAR(a.AppealDate), MONTH(a.AppealDate)
+ORDER BY Year DESC, Month DESC;
+
+-- 12. Средний срок рассмотрения (в днях) по каждому исполнителю
+SELECT e.FullName, 
+       AVG(DATEDIFF(day, a.AppealDate, a.ResponseDeadline)) AS AvgDays
+FROM Appeals a
+JOIN Employees e ON a.EmployeeID = e.EmployeeID
+WHERE a.ResponseDeadline IS NOT NULL
+GROUP BY e.FullName
+ORDER BY AvgDays;
+
+-- 13. Граждане, подавшие больше всего обращений
+SELECT TOP 5 c.LastName + ' ' + c.FirstName AS Citizen, COUNT(a.AppealID) AS AppealsCount
+FROM Citizens c
+JOIN Appeals a ON c.CitizenID = a.CitizenID
+GROUP BY c.LastName, c.FirstName
+ORDER BY AppealsCount DESC;
+
+-- 14. Получение конкретного обращения по ID (для редактирования)
+SELECT * FROM Appeals WHERE AppealID = 123;   -- замените ID
+
+-- 15. Удаление обращения по ID (для администратора)
+DELETE FROM AppealHistory WHERE AppealID = 123;
+DELETE FROM Appeals WHERE AppealID = 123;

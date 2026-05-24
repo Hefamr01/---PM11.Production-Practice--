@@ -1,0 +1,186 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|c:\\users\\\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u043F\u043E\u0431\u0434\\\u043F\u0440\u043E\u0433\u0430\\cityappealsapp\\cityappealsapp\\statustocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\statustocolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\appealeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\appealeditwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\appealeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\appealeditwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\cityappealsapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AF75C732-74BF-4220-A224-41693C48F2B2}|CityAppealsApp\\CityAppealsApp.csproj|solutionrelative:cityappealsapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StatusToColorConverter.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\StatusToColorConverter.cs",
+              "RelativeDocumentMoniker": "CityAppealsApp\\StatusToColorConverter.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\StatusToColorConverter.cs",
+              "RelativeToolTip": "CityAppealsApp\\StatusToColorConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T14:43:49.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\RegisterWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CityAppealsApp\\RegisterWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\RegisterWindow.xaml.cs",
+              "RelativeToolTip": "CityAppealsApp\\RegisterWindow.xaml.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T14:33:05.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\RegisterWindow.xaml",
+              "RelativeDocumentMoniker": "CityAppealsApp\\RegisterWindow.xaml",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\RegisterWindow.xaml",
+              "RelativeToolTip": "CityAppealsApp\\RegisterWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-24T14:32:45.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppealEditWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\AppealEditWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CityAppealsApp\\AppealEditWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\AppealEditWindow.xaml.cs",
+              "RelativeToolTip": "CityAppealsApp\\AppealEditWindow.xaml.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAkwJcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T12:23:31.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppealEditWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\AppealEditWindow.xaml",
+              "RelativeDocumentMoniker": "CityAppealsApp\\AppealEditWindow.xaml",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\AppealEditWindow.xaml",
+              "RelativeToolTip": "CityAppealsApp\\AppealEditWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-24T12:23:10.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.config",
+              "RelativeDocumentMoniker": "CityAppealsApp\\App.config",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.config",
+              "RelativeToolTip": "CityAppealsApp\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-24T10:08:14.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.xaml.cs",
+              "RelativeDocumentMoniker": "CityAppealsApp\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.xaml.cs",
+              "RelativeToolTip": "CityAppealsApp\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T09:46:42.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.xaml",
+              "RelativeDocumentMoniker": "CityAppealsApp\\App.xaml",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\App.xaml",
+              "RelativeToolTip": "CityAppealsApp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-24T09:45:07.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "CityAppealsApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\MainWindow.xaml",
+              "RelativeToolTip": "CityAppealsApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-24T09:41:14.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CityAppealsApp\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B\\\u041F\u0440\u0430\u043A\u0442\u0438\u043A\u0430 \u041F\u043E\u0411\u0414\\\u043F\u0420\u041E\u0413\u0410\\CityAppealsApp\\CityAppealsApp\\MainWindow.xaml.cs",
+              "RelativeToolTip": "CityAppealsApp\\MainWindow.xaml.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAUwM0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T09:41:13.66Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
